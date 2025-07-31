@@ -1,6 +1,6 @@
 # Cloud Computing – Training Notes
 
-A comprehensive overview of key cloud computing concepts, models, providers, and use cases. Suitable for revision, technical interviews, or general understanding of cloud services.
+An overview of key cloud computing concepts, models, providers, and use cases.
 
 ---
 
