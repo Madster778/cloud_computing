@@ -69,7 +69,7 @@ Think of it like:
 ![SSH Key Pair Diagram](images/ssh-key-pair-diagram.png)
 
 **Analogy:**  
-Imagine mailing a locked box (your Git request) and only the receiver (GitHub) can unlock it because they already have your padlock (public key), and you’re the only one who has the key (private key).
+Imagine GitHub is your house, and instead of giving out physical keys, it uses a smart lock system. You send GitHub your digital key signature (your public key), which it saves. Later, when you try to enter (push code), GitHub’s lock sends a challenge only your private key can respond to. If your response matches, the door unlocks — no password needed, and no one else can copy your key.
 
 ---
 
