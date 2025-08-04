@@ -1,0 +1,69 @@
+# Basic System Info
+whoami                          # Show current user
+uname                           # Show system name
+uname --help                    # Show uname options
+cat /etc/shells                 # Show available shells
+
+# History
+history                         # Show command history
+!<number>                       # Rerun command from history
+history -c                      # Clear history
+
+# Navigation
+pwd                             # Show current directory
+cd                              # Go to home directory
+cd ~                            # Go to home directory
+cd ..                           # Go up one directory
+
+# Listing Files
+ls                              # List files
+ls -a                           # List all files including hidden
+ls -l                           # Long listing format
+ls -la                          # Long listing with hidden files
+
+# File and Directory Operations
+nano file.txt                   # Open file in nano editor
+cat file.txt                    # Show contents
+head -2 file.txt                # Show first 2 lines
+tail -2 file.txt                # Show last 2 lines
+nl file.txt                     # Show file with line numbers
+cat file.txt | grep <word>     # Search for lines with <word>
+
+mv old.txt new.txt              # Rename file
+cp original.txt copy.txt        # Copy file
+rm file.txt                     # Delete file
+mkdir new_folder                # Create folder
+rm -r folder                    # Recursively delete folder
+rm -rf folder                   # Force delete (be careful)
+
+# Downloading Files
+curl <url> --output file.jpg    # Download file using curl
+wget <url> -O file.jpg          # Download file using wget
+file file.jpg                   # Show file type
+
+# Package Management
+sudo apt update -y              # Update package list
+sudo apt upgrade -y             # Upgrade installed packages
+sudo apt install tree -y        # Install tree package
+tree                            # Show directory structure
+
+# Root Access & Permissions
+sudo su                         # Become root user
+exit                            # Exit root
+chmod +x script.sh              # Make script executable
+
+# Bash Script: install_nginx.sh
+#!/bin/bash
+sudo apt update -y
+sudo apt upgrade -y
+sudo apt install nginx -y
+sudo systemctl restart nginx
+sudo systemctl enable nginx
+
+sudo nano install_nginx.sh      # Create the script
+sudo chmod +x install_nginx.sh  # Make it executable
+./install_nginx.sh              # Run the script
+
+# Manual Pages
+man man                         # Manual for 'man'
+man ls                          # Manual for 'ls'
