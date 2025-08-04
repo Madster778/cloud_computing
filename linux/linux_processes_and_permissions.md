@@ -190,7 +190,7 @@ This means:
 
 ---
 
-### ✏️ Examples of Changing File Permissions
+### Examples of Changing File Permissions
 
 | Command              | Explanation                                 |
 | -------------------- | ------------------------------------------- |
