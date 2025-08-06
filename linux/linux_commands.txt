@@ -64,6 +64,8 @@ sudo nano install_nginx.sh      # Create the script
 sudo chmod +x install_nginx.sh  # Make it executable
 ./install_nginx.sh              # Run the script
 
+sudo systemctl status nginx     # Check if nginx is running
+
 # Manual Pages
 man man                         # Manual for 'man'
 man ls                          # Manual for 'ls'

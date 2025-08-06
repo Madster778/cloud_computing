@@ -132,3 +132,9 @@ sudo systemctl enable nginx
 Once complete, NGINX will be installed, running, and configured to restart on boot.
 
 ---
+
+### Check NGINX Status
+
+```bash
+sudo systemctl status nginx
+```

@@ -1,0 +1,48 @@
+ps
+
+ps -a
+
+ps aux
+
+sudo systemctl stop nginx
+
+sudo systemctl status nginx
+
+sudo systemctl start nginx
+
+sleep 5
+
+sleep 5000 & # Input
+[1] 14489    # Output
+
+jobs    # To see what's running in the background
+[1]-  Running                 sleep 5000 &
+
+jobs -l # To see what's running in the background in long format
+[1]- 14489 Running                 sleep 5000 &
+
+kill -1 14489 # Kill the sleep 5000 process
+[1]- 14489 Hangup                  sleep 5000
+
+ kill -15 14492
+[2]+ 14492 Terminated              sleep 6000
+
+kill -9 14511
+[1]+ 14511 Killed                  sleep 4000
+
+ls -l # Outputs the files with more information such as file permissions
+
+sudo chmod o=rwx install_nginx.sh # Give other read, write and execute
+
+sudo chmod 644 install_nginx.sh # User can read and write, everyone else read only
+
+Wildcards:
+ 
+There are three basic wildcards:
+* - allow zero or more characters of any type
+? - allow any single character
+[] - allow a range or multiple characters (in a list)
+
+printenv
+
+
