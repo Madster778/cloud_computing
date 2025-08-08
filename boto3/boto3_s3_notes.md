@@ -1,23 +1,27 @@
 # Python and AWS S3 with Boto3 – Practical Notes
 
-These notes summarise what you implemented with Boto3 and S3: listing objects, reading objects, loading data to pandas, and writing data back to S3, plus a small ETL example.
+These notes summarise Boto3 and S3 implementation tasks: listing objects, reading objects, loading data to pandas, and writing data back to S3, plus a small ETL example.
 
 ---
 
 ## Prerequisites
 
-* AWS credentials configured locally using the shared credentials files
+- AWS credentials configured locally using the shared credentials files
+
 ```
 ~/.aws/credentials
 ~/.aws/config
 ```
-* Region set to `eu-central-1`
-* Python environment with the following libraries:
+
+- Region set to `eu-central-1`
+- Python environment with the following libraries:
+
 ```
 boto3
 pandas
 ```
-* **Never** hard-code access keys in scripts.
+
+- **Never** hard-code access keys in scripts.
 
 ---
 
@@ -25,11 +29,11 @@ pandas
 
 Boto3 offers two S3 interfaces:
 
-| Feature    | Client | Resource |
-|------------|--------|----------|
-| Level      | Low-level API | High-level, Pythonic |
-| Method mapping | Direct to AWS REST API | Abstracted methods |
-| Example    | `s3_client.get_object(...)` | `s3_resource.Bucket('bucket').objects.all()` |
+| Feature        | Client                      | Resource                                     |
+| -------------- | --------------------------- | -------------------------------------------- |
+| Level          | Low-level API               | High-level, Pythonic                         |
+| Method mapping | Direct to AWS REST API      | Abstracted methods                           |
+| Example        | `s3_client.get_object(...)` | `s3_resource.Bucket('bucket').objects.all()` |
 
 ```python
 import boto3
@@ -43,6 +47,7 @@ s3_resource = boto3.resource('s3')
 ## Listing Buckets and Objects
 
 ### List buckets (resource):
+
 ```python
 s3 = boto3.resource('s3')
 
@@ -51,6 +56,7 @@ for bucket in s3.buckets.all():
 ```
 
 ### List objects in a bucket (resource):
+
 ```python
 bucket = s3.Bucket('data-eng-resources')
 for obj in bucket.objects.all():
@@ -58,6 +64,7 @@ for obj in bucket.objects.all():
 ```
 
 ### List objects in a bucket (client):
+
 ```python
 response = s3_client.list_objects_v2(Bucket='data-eng-resources')
 for obj in response.get('Contents', []):
@@ -106,6 +113,7 @@ print(df.head())
 ## Writing Objects to S3
 
 ### Upload a JSON object to your folder:
+
 ```python
 import json
 
@@ -128,6 +136,7 @@ s3_client.put_object(
 ---
 
 ### Upload a Pandas DataFrame directly to S3:
+
 ```python
 from io import StringIO
 
@@ -185,7 +194,7 @@ s3_client.put_object(
 
 ## Tips & Checks
 
-* Always verify bucket and key names before running code.
-* Prefer `StringIO` for in-memory read/write with Pandas to avoid local files.
-* Use `print()` sparingly for debugging (e.g., printing keys or DataFrame heads).
-* Never commit AWS credentials — rely on `~/.aws/credentials` or environment variables.
+- Always verify bucket and key names before running code.
+- Prefer `StringIO` for in-memory read/write with Pandas to avoid local files.
+- Use `print()` sparingly for debugging (e.g., printing keys or DataFrame heads).
+- Never commit AWS credentials — rely on `~/.aws/credentials` or environment variables.
